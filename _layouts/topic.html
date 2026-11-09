@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="page-width">
+    <header class="page-intro">
+        <p class="small-label">Tema de lectura</p>
+        <h1>{{ page.title | escape }}</h1>
+        <p>{{ page.description | escape }}</p>
+    </header>
+    {% assign tagged_works = "" | split: "" %}
+    {% for work in site.works %}
+        {% if work.tags contains page.slug %}
+            {% assign tagged_works = tagged_works | push: work %}
+        {% endif %}
+    {% endfor %}
+    <section class="archive-content" aria-labelledby="topic-works">
+        <div class="section-heading">
+            <h2 id="topic-works">Obras relacionadas</h2>
+        </div>
+        {% if tagged_works.size > 0 %}
+        <ol class="reading-list">
+            {% for work in tagged_works %}
+            {% assign author = site.authors | where: "slug", work.author | first %}
+            <li>
+                <a href="{{ work.url | relative_url }}">
+                    <span class="list-mark">{{ work.work_type | escape }}</span>
+                    <h3>{{ work.title | escape }}</h3>
+                    <span class="list-meta">{% if author %}{{ author.name | escape }}{% endif %}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <p class="empty-note">Aún no hay lecturas publicadas con este tema.</p>
+        {% endif %}
+    </section>
+</article>
+{% include structured-data.html kind="topic" %}

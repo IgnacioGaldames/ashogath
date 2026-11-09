@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="page-width">
+    <header class="page-intro">
+        <p class="small-label">Autora / autor de Logia Ashogath</p>
+        <h1>{{ page.name | escape }}</h1>
+        {% if page.contribution %}<p>{{ page.contribution | escape }}</p>{% endif %}
+    </header>
+
+    <section class="author-profile" aria-label="Perfil de {{ page.name | escape }}">
+        {% if page.image %}
+        <img class="author-profile-mark" src="{{ page.image | relative_url }}" alt="Retrato de {{ page.name | escape }}">
+        {% else %}
+        <div class="author-profile-mark" aria-hidden="true">{{ page.monogram | escape }}</div>
+        {% endif %}
+        <div class="author-profile-copy">
+            {{ content }}
+            {% if page.links.size > 0 %}
+            <h2>Enlaces</h2>
+            <ul>
+                {% for link in page.links %}
+                <li><a href="{{ link.url | escape }}" target="_blank" rel="me noopener noreferrer">{{ link.label | escape }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <a class="text-link" href="https://www.instagram.com/logiashogath/" target="_blank" rel="noopener noreferrer">Seguir a Logia Ashogath en Instagram <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    {% assign author_works = site.works | where: "author", page.slug | sort_natural: "order" %}
+    <section class="content-section" aria-labelledby="author-works">
+        <div class="section-heading">
+            <h2 id="author-works">Obras de {{ page.name | escape }}</h2>
+        </div>
+        {% if author_works.size > 0 %}
+        <ol class="reading-list">
+            {% for work in author_works %}
+            <li>
+                <a href="{{ work.url | relative_url }}">
+                    <span class="list-mark">{{ work.work_type | escape }}</span>
+                    <h3>{{ work.title | escape }}</h3>
+                    <span class="list-meta">{{ work.issue_name | escape }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <p class="empty-note">Todavía no hay obras publicadas en este perfil.</p>
+        {% endif %}
+    </section>
+</article>
+{% include structured-data.html kind="author" %}

@@ -1,0 +1,42 @@
+---
+title: 'Precaución: monstruo suelto'
+slug: precaucion-monstruo-suelto
+order: 7
+work_type: Cuento
+summary: Un hombre convencido de que debe salvar la ciudad de los zombis enfrenta la mirada de quienes lo rodean.
+author: rodrigo-munoz-cazaux
+tags:
+- terror
+- zombis
+- humor-negro
+- ciudad
+issue: expediente-0
+issue_name: Expediente 0
+printed_pages: 28–32
+description: Un hombre convencido de que debe salvar la ciudad de los zombis enfrenta la mirada de quienes lo rodean.
+---
+El cielo está nublado, corre un viento que amenaza con lluvias, pero sabes bien que desde hace varios meses las lluvias son solo eso; nada más que amenazas. Aun así, el aire está frío y trae consigo presagios de que algo se desencadenará, ojalá sea la lluvia. Llevas varios días buscando, pero ya los encontrarás, lo sabes bien. Desde que te diste cuenta de lo que estaba ocurriendo, es que estás con esa claridad que viene justo en aquellos momentos en que se necesita. Esta ciudad te necesita, así que debes andar atento, con todos tus sentidos alerta; no sabes lo que te pueda deparar en la siguiente esquina o detrás de cualquiera de esos árboles. Avanza a paso seguro, no te detengas, pero tranquilo, que tu prisa no te delate. Hay monstruos a tu alrededor, alguna vez fueron personas, pero ya no. Tú lo sabes, las señales te lo fueron indicando; fueron imperceptibles al principio, quizás por eso la gente se fue acostumbrando a ellas y terminó por ignorarlas. Ese fue su error, pero no el tuyo. No, tú estabas atento, despierto. Lo has estado desde varios años atrás. Viste como la carne comenzó a decaer en sus rostros, como las miradas fueron perdiendo el brillo, incluso sentiste el aroma de la putrefacción en el ambiente. Trataste de advertirle al resto, pero nadie te escuchó, como siempre. Tuviste que aguantar burlas y algunos golpes, miradas de desprecio, hasta el rechazo de tu familia, pero por suerte para el resto de la humanidad, no te dejaste amedrentar.
+
+Ahora eres el único que sabe lo que realmente ocurre y
+
+que recorre las calles de la ciudad buscando
+
+aquellos no-muertos que están escondidos, amenazando a todas las personas inocentes.
+
+¿Recuerdas cuando viste al primero? Era una mañana fría, tal como hoy, pero estabas más lejos, en otro sector, ahí donde la ciudad se disuelve entre campos de cultivo y basurales. Entre medio de unos arbustos lo viste caminar hacia ti, al principio pensaste que era alguien como tú, que se ha visto obligado a dormir bajo las estrellas varias noches, sin más abrigo que unos cartones viejos, pero había algo que lo delataba; era aquella opacidad en sus ojos, aquella falta total de vida. Abrió la boca al verte, pero nada inteligible salió de sus labios, solo un zumbido como de miles de insectos queriendo atacar. Tomaste una piedra e hiciste lo único que quedaba; partirle el cráneo. Es la única forma certera de detener a los zombis; partiéndoles el cráneo. El hedor de su sangre putrefacta se quedó patente en tu memoria hasta ahora, recordándote lo desagradable de tu tarea, pero piénsalo de una forma positiva: solo tú puedes soportar tamaño peso sobre los hombros.
+
+Hoy es uno de esos días, el aire tiene un olor eléctrico, como de tormenta, creo que eso ya la habías dicho, no te repitas, sé breve, cada vez que te repites la gente piensa que no estás bien, pero son ellos los equivocados. Como aquella mujer que no pudo entender que en realidad la habías librado de una muerte horrible al intentar partirle la cabeza a ese muchacho que se acercaba a ella con los brazos abiertos, dispuesto a apresarla y a enterrar sus dientes en su cuello. Tuviste que huir por sus gritos, te persiguieron, sus pasos resonaban en las calles, pero fuiste más veloz, las hordas son siempre más torpes que alguien con tu determinación.
+
+a
+
+Confunden como en un laberinto en los suburbios. Ibas resoplando por entre las calles, era el atardecer y las sombras iban creciendo para protegerte. Tuviste suerte, pero desde ese día te diste cuenta que sería mejor tener un arma con la cual hacer mejor tu trabajo, aunque no había nada lo suficientemente digno para tan noble misión. En tus paseos urbanos afinaste la vista en busca de la herramienta suficientemente digna. Probaste unas cuantas, nada plenamente satisfactorio; se desbarataban al primer golpe y no dejaban a tus enemigos acabados, tenías que huir, estuvieron a punto de atraparte varias veces. Una mañana soleada por fin la hallaste, estaba en medio de un parque apoyada junto a un árbol, de mango pulido y liso, madera noble, de seguro. No tuviste que preguntar, pero sabías que estaba hecha con trozos santos, quizás hasta de la mismísima Veracruz, solo una madera así de santa podría ser blandida para la misión de limpiar este mundo del ataque de los no-muertos. Una gruesa argolla metálica afirmaba a la madera un azadón, de seguro hecho con metal de origen fabuloso también. Lo tomaste y se amoldaba perfecto en tus manos; un arma luminosa para tiempos oscuros.
+
+Tuviste días tranquilos, los no-muertos huían de ti, se hizo difícil encontrarlos, aunque sabes que hoy será distinto, hay algo en el aire que lo dice, un aroma eléctrico, sabes que está cerca aquella fetidez insana de la carne muerta, sabes que hoy será el día. Llevas tu arma cubierta por tu gabardina, te dificulta caminar un poco, pero todo sea por el efecto sorpresa. Estás emocionado, se te nota en la mirada, en como das los pasos, hay cierta vacilación, pero es solo un poco de ansiedad. Tranquilo, tienes una misión y es importante.
+
+Lo ves ¡Ahí está! Sentado en una mesa, con uno de esos vasos de café desechable en la mano, está solo. Su aroma lo delata, ves sus movimientos inseguros, las carnes muertas no se mueven con la misma agilidad que los vivos. Debes cerciorarte, no puedes cometer errores. Decides pasar cerca, lo que más puedas sin quedar al alcance de uno de sus zarpazos. Estás nervioso, sabes que aquella abominación puede reaccionar y atacarte, pero necesitas verificar tus sospechas. La bestia levanta la mirada y puedes ver aquella opacidad en sus ojos, aquella falta total de vida. Abre la boca, pero nada inteligible sale de sus labios, solo un zumbido como de miles de insectos queriendo atacar. Ya no hay dudas, debes actuar. Avanzas un par de pasos para no levantar sus sospechas, tu corazón late fuerte, sientes tus propios latidos retumbar en tu pecho, sientes como que te falta el aire. Un trueno resuena a lo lejos, era cierto que se aproximaba una tormenta. Te detienes y sacas tu arma de entre su refugio de tela, la sostienes con firmeza en tus manos. Imploras para que te llegue el apoyo mágico de su magnífica factura, que la santa madera canalice tu fuerza en el fabuloso metal y así aniquilen al monstruo. Dos pasos rápidos mientras levantas los brazos. Un golpe en diagonal directo al costado de su cabeza; la bestia no alcanzó a reaccionar. El crujido del cráneo al romperse marca tu triunfo, su cuerpo se desmorona inerte. Lo has sabido de niño, a los zombis hay que reventarles la cabeza y lo has conseguido.
+
+La oscura sangre mancha el pavimento, te alejas triunfante mientras los gritos de los testigos de tu hazaña comienzan a escucharse, pero no son de júbilo, notas de pánico trae el viento hasta tus oídos, escuchas pasos, gritos, acusaciones y manos te aferran ¡La horda te ha atrapado! Lanzas golpes con tu arma, pero uno de ellos fue lo suficientemente ágil para aferrarse a tu arma y forcejear contigo. Te esfuerzas lo que puedes para liberarte, pero son muchos. Son muchos…
+
+Tranquilo, sabes que estas en lo correcto, te lo hemos dicho desde el primer día, desde aquella noche en que comenzaste a escucharnos, sabes que tienes la razón, siempre te lo hemos dicho. Hay zombis pululando por esta ciudad y solo tú puedes detenerlos, esto es solo un contratiempo, nosotros te diremos lo que tengas que decir para que te liberen, haznos caso, estamos en tu cabeza, lo hemos estado desde siempre, confía que te ayudaremos. Solo debes explicar tu misión, como te fue encargado el limpiar la ciudad de la amenaza de los no-muertos y como has recorrido estos meses haciendo todo lo humanamente posible, pero es una tarea titánica. Te llamaron monstruo, dirán que estás loco, pero sabes que no es cierto, nosotros lo sabemos. Déjalos que te encierren y que se confíen, tarde o temprano volverán de rodillas a pedirte disculpas y te devolverán tu arma. Te necesitan allá afuera limpiando la ciudad de la amenaza que se cierne sobre ellos, son muchos, pero están equivocados. Son muchos…
+
+Rodrigo Muñoz Cazaux

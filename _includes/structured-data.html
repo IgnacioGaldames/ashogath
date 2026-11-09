@@ -1,0 +1,112 @@
+{% assign current_url = page.url | absolute_url %}
+{% if include.kind == "work" %}
+    {% assign linked_author = site.authors | where: "slug", page.author | first %}
+    {% assign linked_issue = site.issues | where: "slug", page.issue | first %}
+    {% assign work_type = "CreativeWork" %}
+    {% case page.work_type %}
+        {% when "Cuento" %}{% assign work_type = "ShortStory" %}
+        {% when "Ensayo" %}{% assign work_type = "Article" %}
+        {% when "Poesía" %}{% assign work_type = "Poem" %}
+    {% endcase %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{ work_type | jsonify }},
+  "@id": {{ current_url | append: "#work" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "url": {{ current_url | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "description": {{ page.summary | jsonify }}{% if linked_author %},
+  "author": {
+    "@type": "Person",
+    "name": {{ linked_author.name | jsonify }},
+    "url": {{ linked_author.url | absolute_url | jsonify }}
+  }{% endif %}{% if linked_issue %},
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "name": {{ linked_issue.title | jsonify }},
+    "url": {{ linked_issue.url | absolute_url | jsonify }}
+  }{% endif %}{% if page.tags.size > 0 %},
+  "keywords": [{% assign separator = "" %}{% for tag in page.tags %}{% assign topic = site.topics | where: "slug", tag | first %}{% if topic %}{{ separator }}{{ topic.title | jsonify }}{% assign separator = ", " %}{% endif %}{% endfor %}]
+  {% endif %}
+}
+</script>
+{% elsif include.kind == "author" %}
+{% assign image_url = page.image | absolute_url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": {{ current_url | append: "#person" | jsonify }},
+  "name": {{ page.name | jsonify }},
+  "url": {{ current_url | jsonify }}{% if page.image %},
+  "image": {{ image_url | jsonify }}{% endif %}{% if page.links.size > 0 %},
+  "sameAs": [{% assign separator = "" %}{% for link in page.links %}{% if link.url %}{{ separator }}{{ link.url | jsonify }}{% assign separator = ", " %}{% endif %}{% endfor %}]
+  {% endif %}
+}
+</script>
+{% elsif include.kind == "issue" %}
+{% assign pdf_url = page.download | absolute_url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PublicationIssue",
+  "@id": {{ current_url | append: "#issue" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "url": {{ current_url | jsonify }},
+  "issueNumber": {{ page.issue_number | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Revista Ashogath",
+    "publisher": { "@id": {{ "/" | absolute_url | append: "#organization" | jsonify }} }
+  },
+  "associatedMedia": {
+    "@type": "MediaObject",
+    "contentUrl": {{ pdf_url | jsonify }},
+    "encodingFormat": "application/pdf"
+  }
+}
+</script>
+{% elsif include.kind == "topic" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "@id": {{ current_url | append: "#topic" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": {{ current_url | jsonify }}
+}
+</script>
+{% elsif include.kind == "podcast" %}
+{% assign audio_url = page.audio_url | absolute_url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  "@id": {{ current_url | append: "#episode" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "url": {{ current_url | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "description": {{ page.description | jsonify }}{% if page.audio_url %},
+  "associatedMedia": {
+    "@type": "AudioObject",
+    "contentUrl": {{ audio_url | jsonify }}
+  }{% endif %}{% if page.date %},
+  "datePublished": {{ page.date | date: "%Y-%m-%d" | jsonify }}{% endif %}
+}
+</script>
+{% elsif include.kind == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "url": {{ current_url | jsonify }},
+  "datePublished": {{ page.date | date: "%Y-%m-%d" | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "publisher": { "@id": {{ "/" | absolute_url | append: "#organization" | jsonify }} }
+}
+</script>
+{% endif %}

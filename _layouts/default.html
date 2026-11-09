@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ page.lang | default: site.lang | default: 'es' }}">
     {% include head.html %}
 <body>
@@ -6,7 +6,7 @@
     {% if site.gtm_id and site.gtm_id != "" %}
         {% include head/google_tag_manager_noscript.html %}
     {% endif %}
-    <header>
+    <header class="site-header">
         {% include header.html %}
     </header>
 
