@@ -1,0 +1,133 @@
+# ============================================================
+#  Jekyll Configuration
+#  Template base — ajusta los valores antes de usar este proyecto
+# ============================================================
+#
+# Para más info: https://jekyllrb.com/docs/configuration/
+# NOTA: Reiniciar `bundle exec jekyll serve` al modificar este archivo.
+
+encoding: utf-8
+
+# ------------------------------------------------------------
+# Información del sitio
+# ------------------------------------------------------------
+title:       "Mi Sitio"                       # Nombre del sitio (aparece en <title> y SEO)
+name:        "Tu nombre o empresa"            # Nombre del autor / organización
+email:       ""                               # Email de contacto (opcional)
+description: >-
+  Descripción del sitio. Aparece en resultados de búsqueda
+  y en meta tags de redes sociales.
+lang:        "es"                             # Idioma del sitio (ISO 639-1)
+baseurl:     ""                               # Subpath del sitio, ej: /blog (dejar vacío si es raíz)
+url:         "https://www.tusitio.com"        # URL base con protocolo, sin barra final
+title_image: ""                               # URL de imagen por defecto para OG/Twitter Cards
+logo: ""                                      # URL del logo para SEO (opcional)
+author:
+  name: "Tu nombre o empresa"
+
+# ------------------------------------------------------------
+# Redes sociales — dejar vacío ("") para desactivar
+# ------------------------------------------------------------
+twitter_username:   ""
+github_username:    ""
+linkedin_username:  ""
+instagram_username: ""
+facebook_username:  ""
+youtube_username:   ""
+pinterest_username: ""
+behance_username:   ""
+flickr_username:    ""
+tumblr_username:    ""
+
+# ------------------------------------------------------------
+# Integraciones de marketing / analytics
+# Dejar vacío ("") para desactivar cada integración
+# ------------------------------------------------------------
+
+# Google Analytics 4 — formato: G-XXXXXXXXXX
+google_analytics_id: ""
+
+# Google Tag Manager — formato: GTM-XXXXXXX
+gtm_id: ""
+
+# Meta (Facebook) Pixel — formato: número de 15-16 dígitos
+fb_pixel_id: ""
+
+# ------------------------------------------------------------
+# Tipografía — Google Fonts
+# Dejar vacío ("") para desactivar. Formato: lista de strings JS
+# Ej: "'Roboto', 'Open Sans:300,400,700'"
+# ------------------------------------------------------------
+google_fonts: ""
+
+# ------------------------------------------------------------
+# Funcionalidades opcionales
+# ------------------------------------------------------------
+animate_css: false    # Activar Animate.css + WOW.js para animaciones scroll
+
+# ------------------------------------------------------------
+# Build settings
+# ------------------------------------------------------------
+show_excerpts: true
+markdown:      kramdown
+permalink:     pretty
+timezone:      America/Santiago
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  style:    compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# ------------------------------------------------------------
+# Colecciones personalizadas (descomentar según necesidad)
+# ------------------------------------------------------------
+# collections:
+#   projects:
+#     output: true
+#   portfolio:
+#     output: true
+
+# ------------------------------------------------------------
+# Defaults de Front Matter
+# ------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: ""
+
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+
+# ------------------------------------------------------------
+# Exclusiones del build
+# ------------------------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .ruby-version
+  - README.md
+  - LICENSE

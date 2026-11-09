@@ -1,0 +1,9 @@
+# Navegación principal del sitio
+# Agregar, quitar o reordenar ítems según el proyecto.
+# La URL debe comenzar con /
+
+- title: "Inicio"
+  url: /
+
+- title: "Acerca"
+  url: /about/
