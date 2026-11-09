@@ -1,0 +1,61 @@
+---
+layout: default
+---
+{% assign author = site.authors | where: "slug", page.author | first %}
+{% assign issue = site.issues | where: "slug", page.issue | first %}
+<article>
+    <header class="work-head">
+        <div class="page-width work-head-grid">
+            <div class="work-head-main">
+                <p class="small-label">
+                    {% if issue %}<a href="{{ issue.url | relative_url }}">{{ issue.title | escape }}</a>{% else %}{{ page.issue_name | escape }}{% endif %}
+                    · {{ page.work_type | escape }}
+                </p>
+                <h1>{{ page.title | escape }}</h1>
+                <p class="work-summary">{{ page.summary | escape }}</p>
+            </div>
+            <div class="work-head-side">
+                {% if author %}
+                <p><strong>Escrito por</strong><br><a href="{{ author.url | relative_url }}">{{ author.name | escape }}</a></p>
+                {% endif %}
+                {% if page.printed_pages %}<p><strong>En la revista</strong><br>Páginas {{ page.printed_pages | escape }}</p>{% endif %}
+            </div>
+        </div>
+    </header>
+
+    <div class="work-content">
+        {{ content }}
+    </div>
+
+    {% if page.tags.size > 0 %}
+    <nav class="work-tags page-width" aria-label="Temas de esta lectura">
+        <h2>Explora por tema</h2>
+        <ul class="topic-list">
+            {% for tag in page.tags %}
+            {% assign topic = site.topics | where: "slug", tag | first %}
+            {% if topic %}
+            <li><a href="{{ topic.url | relative_url }}">{{ topic.title | escape }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {% if author %}
+    <aside class="author-banner page-width" aria-labelledby="author-banner-title">
+        <div class="author-banner-mark" aria-hidden="true">{{ author.monogram | escape }}</div>
+        <div class="author-banner-copy">
+            <p class="small-label">La voz detrás de esta lectura</p>
+            <h2 id="author-banner-title"><a href="{{ author.url | relative_url }}">{{ author.name | escape }}</a></h2>
+            <p>{{ author.contribution | escape }}</p>
+            <div class="author-banner-links">
+                <a href="{{ author.url | relative_url }}">Ver perfil y otras obras <span aria-hidden="true">→</span></a>
+                {% for link in author.links %}
+                <a href="{{ link.url | escape }}" target="_blank" rel="me noopener noreferrer">{{ link.label | escape }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </aside>
+    {% endif %}
+</article>
+{% include structured-data.html kind="work" %}

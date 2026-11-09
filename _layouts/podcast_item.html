@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="page-width">
+    <header class="post-header">
+        <p class="small-label">Podcast Ashogath{% if page.season %} · {{ page.season | escape }}{% endif %}</p>
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
+        {% if page.date %}<p class="post-meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d.%m.%Y" }}</time></p>{% endif %}
+    </header>
+    <div class="post-content">{{ content }}</div>
+    {% if page.audio_url %}
+    {% assign audio_source = page.audio_url %}
+    {% unless audio_source contains '://' %}{% assign audio_source = audio_source | relative_url %}{% endunless %}
+    <div class="page-width podcast-player">
+        <audio controls preload="none">
+            <source src="{{ audio_source | escape }}">
+            Tu navegador no permite reproducir este archivo de audio.
+        </audio>
+        <a class="text-link" href="{{ audio_source | escape }}" download>Descargar audio</a>
+    </div>
+    {% endif %}
+</article>
+{% include structured-data.html kind="podcast" %}

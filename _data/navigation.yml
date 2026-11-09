@@ -1,9 +1,20 @@
-# Navegación principal del sitio
-# Agregar, quitar o reordenar ítems según el proyecto.
-# La URL debe comenzar con /
+- title: Fanzine
+  url: /fanzines/
 
-- title: "Inicio"
-  url: /
+- title: Autores
+  url: /autores/
 
-- title: "Acerca"
-  url: /about/
+- title: Lecturas
+  url: /obras/
+
+- title: Temas
+  url: /temas/
+
+- title: Blog
+  url: /blog/
+
+- title: Podcast
+  url: /podcast/
+
+- title: Convocatoria
+  url: /convocatoria/

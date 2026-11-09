@@ -2,29 +2,97 @@
 layout: default
 ---
 
-<div class="container py-5">
-    <section class="hero py-4 py-lg-5">
-        <p class="text-uppercase text-primary fw-semibold small mb-2">{{ site.tagline | default: "Una web clara, rápida y lista para crecer" }}</p>
-        <h1 class="display-4 fw-bold">{{ page.title | default: site.title }}</h1>
-        <div class="lead col-lg-8">{{ content }}</div>
-    </section>
-
-    {% if site.posts.size > 0 %}
-    <section class="mt-5" aria-labelledby="latest-posts">
-        <h2 id="latest-posts">Últimas publicaciones</h2>
-        <div class="row g-4 mt-1">
-            {% for post in site.posts limit: 3 %}
-            <article class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <p class="text-muted small mb-2">{{ post.date | date: "%d/%m/%Y" }}</p>
-                        <h3 class="h5 card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                        <p class="card-text">{{ post.excerpt | strip_html | truncate: 140 }}</p>
-                    </div>
-                </div>
-            </article>
-            {% endfor %}
+<!--
+THESIS: An open editing table makes every story a route to its author, not a row buried inside a download.
+OWN-WORLD: Ink black, bright safety orange, clean white stock, and perforated contact-sheet rows carry the site.
+STORY: Readers can open the current issue, read each work, follow its writer, and find the next path without backtracking.
+FIRST VIEWPORT: A seven-column orange statement sits beside a five-column black issue imprint and a direct download.
+FORM: The assigned sixth grounded direction, a film-cutting bench recast as a no-JavaScript contact sheet; seed 765583fb.
+-->
+<section class="home-hero">
+    <div class="page-width home-hero-grid">
+        <div class="home-hero-copy">
+            <h1>Historias que no caben en el margen.</h1>
+            <p>{{ content }}</p>
+            <div class="home-actions">
+                <a class="button-link" href="{{ '/fanzines/' | relative_url }}">Abrir el fanzine</a>
+                <a class="button-link button-link--light" href="{{ '/autores/' | relative_url }}">Conocer a sus autores</a>
+            </div>
         </div>
-    </section>
+        {% assign issue = site.issues | first %}
+        {% if issue %}
+        <aside class="issue-stamp" aria-label="Edición destacada">
+            <img src="{{ '/assets/images/logo-ashogath.jpg' | relative_url }}" alt="" width="112" height="112">
+            <div>
+                <p class="small-label">Revista Ashogath · Expediente {{ issue.issue_number }}</p>
+                <h2>{{ issue.theme | escape }}</h2>
+                <p>{{ issue.summary | escape }}</p>
+            </div>
+            <a href="{{ issue.url | relative_url }}">Entrar a la edición <span aria-hidden="true">→</span></a>
+        </aside>
+        {% endif %}
+    </div>
+</section>
+
+<section class="content-section page-width" aria-labelledby="latest-posts">
+    <div class="section-heading">
+        <h2 id="latest-posts">Desde el blog</h2>
+        <a class="text-link" href="{{ '/blog/' | relative_url }}">Ver el blog <span aria-hidden="true">→</span></a>
+    </div>
+    {% if site.posts.size > 0 %}
+    <ol class="reading-list">
+        {% for post in site.posts limit: 3 %}
+        <li>
+            <a href="{{ post.url | relative_url }}">
+                <span class="list-mark">{{ post.date | date: "%d.%m.%Y" }}</span>
+                <h3>{{ post.title | escape }}</h3>
+                <span class="list-meta">Entrada del blog</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p class="empty-note">El blog todavía no tiene entradas publicadas. Puedes empezar por las historias de la revista o volver pronto.</p>
     {% endif %}
-</div>
+</section>
+
+<section class="content-section page-width" aria-labelledby="featured-works">
+    <div class="section-heading">
+        <h2 id="featured-works">Lee una historia</h2>
+        <a class="text-link" href="{{ '/obras/' | relative_url }}">Todas las lecturas <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="reading-list">
+        {% assign ordered_works = site.works | sort_natural: "order" %}
+        {% for work in ordered_works limit: 4 %}
+        {% assign author = site.authors | where: "slug", work.author | first %}
+        <li>
+            <a href="{{ work.url | relative_url }}">
+                <span class="list-mark">{{ work.work_type | escape }}</span>
+                <h3>{{ work.title | escape }}</h3>
+                <span class="list-meta">{% if author %}{{ author.name | escape }}{% else %}{{ work.issue_name | escape }}{% endif %}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ol>
+</section>
+
+<section class="content-section page-width home-columns">
+    <section aria-labelledby="authors-title">
+        <div class="section-heading">
+            <h2 id="authors-title">Las voces detrás de las páginas</h2>
+        </div>
+        <p>Conoce a quienes escribieron esta edición y vuelve a sus relatos desde cada perfil.</p>
+        <a class="text-link" href="{{ '/autores/' | relative_url }}">Explorar autores <span aria-hidden="true">→</span></a>
+    </section>
+    <section aria-labelledby="call-title">
+        <div class="section-heading">
+            <h2 id="call-title">¿Tienes un relato?</h2>
+        </div>
+        {% if site.data.convocatoria.status == "open" %}
+        <p>La convocatoria para el próximo fanzine está abierta. Revisa las condiciones antes de enviar.</p>
+        {% else %}
+        <p>La convocatoria para el próximo fanzine está cerrada mientras se preparan sus condiciones.</p>
+        {% endif %}
+        <a class="text-link" href="{{ '/convocatoria/' | relative_url }}">Ver convocatoria <span aria-hidden="true">→</span></a>
+    </section>
+</section>

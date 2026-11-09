@@ -1,77 +1,29 @@
-# ============================================================
-#  Jekyll Configuration
-#  Template base — ajusta los valores antes de usar este proyecto
-# ============================================================
-#
-# Para más info: https://jekyllrb.com/docs/configuration/
-# NOTA: Reiniciar `bundle exec jekyll serve` al modificar este archivo.
-
 encoding: utf-8
-
-# ------------------------------------------------------------
-# Información del sitio
-# ------------------------------------------------------------
-title:       "Ashogath"                       # Nombre del sitio (aparece en <title> y SEO)
-name:        "Ashogath"                       # Nombre del autor / organización
-email:       ""                               # Email de contacto (opcional)
+title: "Logia Ashogath"
+name: "Logia Ashogath"
 description: >-
-  Sitio web de Ashogath.
-lang:        "es"                             # Idioma del sitio (ISO 639-1)
-baseurl:     "/ashogath"                      # Subpath del sitio en GitHub Pages
-url:         "https://ignaciogaldames.com"     # URL base con protocolo, sin barra final
-title_image: ""                               # URL de imagen por defecto para OG/Twitter Cards
-logo: ""                                      # URL del logo para SEO (opcional)
-author:
-  name: "Ashogath"
+  Círculo de escritoras y escritores de ciencia ficción, fantasía y terror.
+  Lee el fanzine, explora relatos y conoce a sus autores.
+lang: es
+baseurl: "/ashogath"
+url: "https://ignaciogaldames.com"
+logo: /assets/images/logo-ashogath.jpg
+timezone: America/Santiago
 
-# ------------------------------------------------------------
-# Redes sociales — dejar vacío ("") para desactivar
-# ------------------------------------------------------------
-twitter_username:   ""
-github_username:    ""
-linkedin_username:  ""
-instagram_username: ""
-facebook_username:  ""
-youtube_username:   ""
+instagram_username: logiashogath
+twitter_username: ""
+github_username: ""
+linkedin_username: ""
+facebook_username: ""
+youtube_username: ""
 pinterest_username: ""
-behance_username:   ""
-flickr_username:    ""
-tumblr_username:    ""
+behance_username: ""
+flickr_username: ""
+tumblr_username: ""
 
-# ------------------------------------------------------------
-# Integraciones de marketing / analytics
-# Dejar vacío ("") para desactivar cada integración
-# ------------------------------------------------------------
-
-# Google Analytics 4 — formato: G-XXXXXXXXXX
-google_analytics_id: ""
-
-# Google Tag Manager — formato: GTM-XXXXXXX
-gtm_id: ""
-
-# Meta (Facebook) Pixel — formato: número de 15-16 dígitos
-fb_pixel_id: ""
-
-# ------------------------------------------------------------
-# Tipografía — Google Fonts
-# Dejar vacío ("") para desactivar. Formato: lista de strings JS
-# Ej: "'Roboto', 'Open Sans:300,400,700'"
-# ------------------------------------------------------------
-google_fonts: ""
-
-# ------------------------------------------------------------
-# Funcionalidades opcionales
-# ------------------------------------------------------------
-animate_css: false    # Activar Animate.css + WOW.js para animaciones scroll
-
-# ------------------------------------------------------------
-# Build settings
-# ------------------------------------------------------------
-theme:         minima
+markdown: kramdown
+permalink: pretty
 show_excerpts: true
-markdown:      kramdown
-permalink:     pretty
-timezone:      America/Santiago
 
 kramdown:
   input: GFM
@@ -80,46 +32,71 @@ kramdown:
 
 sass:
   sass_dir: _sass
-  style:    compressed
+  style: compressed
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# ------------------------------------------------------------
-# Colecciones personalizadas (descomentar según necesidad)
-# ------------------------------------------------------------
-# collections:
-#   projects:
-#     output: true
-#   portfolio:
-#     output: true
+collections:
+  authors:
+    output: true
+    permalink: /autores/:name/
+  works:
+    output: true
+    permalink: /obras/:name/
+  issues:
+    output: true
+    permalink: /fanzines/:name/
+  topics:
+    output: true
+    permalink: /temas/:name/
+  podcast:
+    output: true
+    permalink: /podcast/:name/
 
-# ------------------------------------------------------------
-# Defaults de Front Matter
-# ------------------------------------------------------------
 defaults:
   - scope:
       path: ""
-      type: "pages"
+      type: pages
     values:
-      layout: "page"
+      layout: page
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
-      layout: "post"
-      author: ""
-
+      layout: post
   - scope:
-      path: "assets"
+      path: ""
+      type: authors
+    values:
+      layout: author
+  - scope:
+      path: ""
+      type: works
+    values:
+      layout: work
+  - scope:
+      path: ""
+      type: issues
+    values:
+      layout: issue
+  - scope:
+      path: ""
+      type: topics
+    values:
+      layout: topic
+  - scope:
+      path: ""
+      type: podcast
+    values:
+      layout: podcast_item
+  - scope:
+      path: assets
     values:
       sitemap: false
 
-# ------------------------------------------------------------
-# Exclusiones del build
-# ------------------------------------------------------------
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -129,5 +106,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .ruby-version
+  - .pages.yml
+  - PRODUCT.md
   - README.md
   - LICENSE

@@ -1,127 +1,72 @@
-# Template Jekyll
+# Logia Ashogath
 
-Template base para crear sitios Jekyll rápidos, accesibles y listos para producción. Incluye Bootstrap 5, SEO, feed RSS, sitemap, analítica opcional y una compilación automática en GitHub Actions.
+Sitio editorial en español para el círculo de escritura Logia Ashogath. La portada conecta el fanzine, cada una de sus obras y autores, el blog, el podcast y la convocatoria.
 
-## Stack
+## Desarrollo
 
 | Herramienta | Versión |
 |---|---|
 | Jekyll | 4.3 |
-| Bootstrap | 5.3 |
-| FontAwesome | 6.5 |
-| jekyll-seo-tag | ✅ |
-| jekyll-sitemap | ✅ |
-| jekyll-feed | ✅ |
+| jekyll-seo-tag | Sí |
+| jekyll-sitemap | Sí |
+| jekyll-feed | Sí |
 
-## Inicio rápido
-
-```bash
-# Instalar dependencias
+```powershell
 bundle install
-
-# Servidor de desarrollo
 bundle exec jekyll serve
-
-# Build de producción (PowerShell)
 $env:JEKYLL_ENV="production"; bundle exec jekyll build --strict_front_matter
-
-# Build de producción (macOS/Linux)
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
 ```
 
-## Configuración
+## Editar el contenido
 
-Antes de publicar, edita [`_config.yml`](_config.yml):
+El contenido editorial vive en colecciones Markdown con front matter:
 
-```yaml
-title:  "Ashogath"
-url:    "https://ignaciogaldames.com"
-baseurl: "/ashogath"
-lang:   "es"
-theme:  minima
+| Contenido | Carpeta | Ruta pública |
+|---|---|---|
+| Autores | `_authors/` | `/autores/` |
+| Cuentos, poemas y ensayos | `_works/` | `/obras/` |
+| Ediciones del fanzine | `_issues/` | `/fanzines/` |
+| Temas y géneros | `_topics/` | `/temas/` |
+| Episodios | `_podcast/` | `/podcast/` |
+| Entradas del blog | `_posts/` | `/blog/` |
 
-# Analytics (dejar vacío para desactivar)
-google_analytics_id: "G-XXXXXXXXXX"
-gtm_id:              "GTM-XXXXXXX"
-fb_pixel_id:         ""
+Pages CMS lee la configuración de [`.pages.yml`](.pages.yml). Para editar desde el navegador, abre [pagescms.org](https://pagescms.org), inicia sesión con GitHub y autoriza el acceso al repositorio `IgnacioGaldames/ashogath`. El CMS guarda los cambios como commits en Git; no necesita credenciales OAuth propias ni un backend adicional. La autorización de GitHub y el acceso al repositorio son requisitos de la cuenta que lo active.
 
-# Redes sociales
-twitter_username:  ""
-github_username:   ""
-linkedin_username: ""
-```
+La convocatoria se controla en [`_data/convocatoria.yml`](_data/convocatoria.yml). Usa `status: open` solo cuando estén confirmadas las bases y el canal de envío; completa tema, plazo y correo/formulario únicamente con datos oficiales. El Instagram de la Logia es un canal de consultas, no un medio de envío. La página puede editarse desde Pages CMS.
+
+Para publicar una obra:
+
+1. Crea un perfil en `_authors/` y copia su `slug` en el campo `author` de cada obra.
+2. Crea o elige un tema en `_topics/`; usa su `slug` en `tags`.
+3. Añade el texto y sus metadatos a `_works/`, con `issue`, `issue_name`, tipo, resumen y páginas impresas.
+4. Añade la edición a `_issues/` y guarda su PDF en `assets/downloads/`; usa la ruta pública `/assets/downloads/nombre.pdf`.
+5. Si se conocen, completa enlaces personales o redes y un retrato autorizado. No inventes biografías, fechas, bases ni enlaces.
+
+Cada obra enlaza a su autor y edición; cada perfil reúne las obras publicadas. El cuerpo de las obras se conserva en Markdown, con párrafos y diálogos legibles en el sitio.
 
 ## Estructura
 
-```
-template-jekyll/
-├── _config.yml          # Configuración principal
-├── _data/
-│   └── navigation.yml   # Ítems del menú
-├── _includes/
-│   ├── head.html        # <head> con SEO y analytics
-│   ├── header.html      # Navbar responsive
-│   ├── footer.html      # Scripts al cierre del body
-│   ├── head/            # Parciales del <head>
-│   └── footer/          # Scripts parciales
-├── _layouts/
-│   ├── default.html     # Layout base
-│   ├── home.html        # Página principal
-│   ├── page.html        # Páginas estáticas
-│   └── post.html        # Artículos del blog
-├── _posts/              # Artículos (YYYY-MM-DD-titulo.md)
+```text
+ashogath/
+├── _authors/            # Perfiles
+├── _data/               # Navegación y convocatoria
+├── _issues/             # Ediciones
+├── _podcast/            # Episodios
+├── _posts/              # Blog (YYYY-MM-DD-titulo.md)
+├── _topics/             # Temas y géneros
+├── _works/              # Cuentos, poemas y ensayos
 ├── assets/
-│   └── css/
-│       └── style.scss   # Estilos principales
-├── index.md             # Página de inicio
-└── about.md             # Página de ejemplo
+│   ├── downloads/        # PDFs descargables
+│   ├── images/          # Marca y retratos autorizados
+│   └── css/style.scss   # Sistema visual
+├── _includes/            # Metadatos y datos estructurados
+├── _layouts/             # Plantillas de páginas
+├── .pages.yml            # Editor visual conectado a GitHub
+└── index.md              # Página de inicio
 ```
 
-## Navegación
+El sitio usa `baseurl: /ashogath` y `url: https://ignaciogaldames.com`. Mantén `relative_url` en enlaces internos. Los metadatos sociales, canonical, feed y sitemap se generan con los plugins Jekyll existentes.
 
-Edita [`_data/navigation.yml`](_data/navigation.yml):
+## Publicación
 
-```yaml
-- title: "Inicio"
-  url: /
-
-- title: "Blog"
-  url: /blog/
-
-- title: "Acerca"
-  url: /about/
-```
-
-## Estructura recomendada para nuevos proyectos
-
-1. Cambia `title`, `name`, `description`, `url` y `lang`.
-2. Reemplaza `index.md` y `about.md` por el contenido real.
-3. Actualiza [`_data/navigation.yml`](_data/navigation.yml).
-4. Añade imágenes a `assets/images/` y estilos en `assets/css/style.scss`.
-5. Crea artículos en `_posts/` con el formato `YYYY-MM-DD-titulo.md`.
-6. Configura los secretos o IDs de analítica solo cuando exista consentimiento.
-
-`baseurl` debe ser vacío para un dominio raíz y comenzar con `/` cuando el sitio vive en un subdirectorio. Este repositorio usa `/ashogath`; el sitio público está en `https://ignaciogaldames.com/ashogath/`. Usa siempre `relative_url` para enlaces internos.
-
-## Analytics
-
-Las integraciones se activan automáticamente si el valor en `_config.yml` no está vacío.
-Google Analytics solo se carga en producción (`JEKYLL_ENV=production`).
-
-| Variable | Plataforma |
-|---|---|
-| `google_analytics_id` | Google Analytics 4 |
-| `gtm_id` | Google Tag Manager |
-| `fb_pixel_id` | Meta (Facebook) Pixel |
-
-Google Analytics solo se carga en producción y respeta la preferencia `Do Not Track`. Las integraciones permanecen desactivadas cuando sus valores están vacíos.
-
-## Publicar en GitHub Pages
-
-GitHub Pages ya está configurado para compilar desde la raíz de `master`. Mantén **Settings > Pages > Build and deployment > Deploy from a branch**, con `master` y `/(root)` seleccionados. Cada push a `master` publica el sitio; no hace falta cambiar a un workflow de deploy de Actions.
-
-El workflow incluido compila el sitio en cada pull request y push a `master`. Para probarlo localmente, ejecuta `bundle install` y luego `bundle exec jekyll build --strict_front_matter`.
-
-## Licencia
-
-MIT
+GitHub Pages publica desde `master` en la raíz del repositorio. El workflow del repositorio compila el sitio en los pull requests y en los pushes a `master`. Para validar localmente, usa `bundle exec jekyll build --strict_front_matter`.

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="page-width">
+    <header class="page-intro">
+        <p class="small-label">Revista Ashogath · Expediente {{ page.issue_number }}</p>
+        <h1>{{ page.title | escape }}</h1>
+        <p>{{ page.summary | escape }}</p>
+    </header>
+
+    <section class="issue-panel" aria-label="Descarga y datos de la edición">
+        <div class="issue-panel-main">
+            {{ content }}
+        </div>
+        <aside class="issue-panel-meta">
+            <p class="small-label">Una edición completa, también en PDF</p>
+            <p>{{ page.edition_note | escape }}</p>
+            <a class="button-link" href="{{ page.download | relative_url }}" download>Descargar PDF · {{ page.download_size | escape }}</a>
+        </aside>
+    </section>
+
+    {% assign issue_works = site.works | where: "issue", page.slug | sort_natural: "order" %}
+    <section class="content-section" aria-labelledby="issue-works">
+        <div class="section-heading">
+            <h2 id="issue-works">Lee cada obra</h2>
+        </div>
+        <ol class="reading-list">
+            {% for work in issue_works %}
+            {% assign author = site.authors | where: "slug", work.author | first %}
+            <li>
+                <a href="{{ work.url | relative_url }}">
+                    <span class="list-mark">{{ work.work_type | escape }}</span>
+                    <h3>{{ work.title | escape }}</h3>
+                    <span class="list-meta">{% if author %}{{ author.name | escape }}{% else %}{{ work.issue_name | escape }}{% endif %}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+    </section>
+</article>
+{% include structured-data.html kind="issue" %}

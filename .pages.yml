@@ -1,0 +1,159 @@
+media:
+  - name: images
+    label: Imágenes
+    input: assets/images
+    output: /assets/images
+    extensions: [jpg, jpeg, png, webp]
+  - name: downloads
+    label: PDFs de ediciones
+    input: assets/downloads
+    output: /assets/downloads
+    extensions: [pdf]
+  - name: audio
+    label: Audio del podcast
+    input: assets/audio
+    output: /assets/audio
+    extensions: [mp3, m4a, ogg]
+
+content:
+  - name: authors
+    label: Autores
+    type: collection
+    path: _authors
+    filename: "{fields.slug}.md"
+    view:
+      primary: name
+    fields:
+      - { name: name, label: Nombre público, type: string, required: true }
+      - { name: slug, label: Identificador de URL, type: string, required: true }
+      - { name: monogram, label: Iniciales si no hay retrato, type: string }
+      - { name: contribution, label: Presentación breve, type: text }
+      - { name: description, label: Descripción para buscadores, type: text }
+      - name: image
+        label: Retrato
+        type: image
+        options:
+          media: images
+      - name: links
+        label: Sitios y redes personales
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: label, label: Nombre del enlace, type: string, required: true }
+          - { name: url, label: URL, type: string, required: true }
+      - { name: body, label: Perfil, type: rich-text }
+
+  - name: works
+    label: Cuentos, poemas y ensayos
+    type: collection
+    path: _works
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: slug, label: Identificador de URL, type: string, required: true }
+      - { name: order, label: Orden de lectura, type: number }
+      - { name: work_type, label: Tipo de obra, type: string, required: true }
+      - { name: summary, label: Descripción breve, type: text, required: true }
+      - { name: description, label: Descripción para buscadores, type: text }
+      - { name: author, label: Identificador del autor, type: string }
+      - { name: issue, label: Identificador de la edición, type: string, required: true }
+      - { name: issue_name, label: Nombre de la edición, type: string, required: true }
+      - { name: printed_pages, label: Páginas impresas, type: string }
+      - { name: tags, label: Temas (usar identificadores de Temas), type: string, list: true }
+      - { name: body, label: Texto íntegro, type: rich-text }
+
+  - name: issues
+    label: Ediciones del fanzine
+    type: collection
+    path: _issues
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+    fields:
+      - { name: title, label: Título de la edición, type: string, required: true }
+      - { name: slug, label: Identificador de URL, type: string, required: true }
+      - { name: issue_number, label: Número, type: string, required: true }
+      - { name: theme, label: Tema, type: string }
+      - { name: summary, label: Descripción, type: text, required: true }
+      - { name: description, label: Descripción para buscadores, type: text }
+      - { name: edition_note, label: Nota de edición, type: text }
+      - name: download
+        label: PDF de la edición
+        type: file
+        options:
+          media: downloads
+          extensions: [pdf]
+      - { name: download_size, label: Tamaño para mostrar, type: string }
+      - { name: body, label: Presentación de la edición, type: rich-text }
+
+  - name: topics
+    label: Temas y géneros
+    type: collection
+    path: _topics
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+    fields:
+      - { name: title, label: Tema o género, type: string, required: true }
+      - { name: slug, label: Identificador de URL, type: string, required: true }
+      - { name: description, label: Descripción, type: text, required: true }
+
+  - name: podcast
+    label: Episodios de podcast
+    type: collection
+    path: _podcast
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - { name: title, label: Título del episodio, type: string, required: true }
+      - { name: slug, label: Identificador de URL, type: string, required: true }
+      - { name: date, label: Fecha, type: date }
+      - { name: description, label: Descripción, type: text, required: true }
+      - name: audio_url
+        label: Archivo o enlace de audio
+        type: file
+        options:
+          media: audio
+          extensions: [mp3, m4a, ogg]
+      - { name: body, label: Notas del episodio, type: rich-text }
+
+  - name: posts
+    label: Blog
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: date, label: Fecha de publicación, type: date, required: true }
+      - { name: author, label: Autor/a (opcional), type: string }
+      - { name: excerpt, label: Resumen, type: text }
+      - { name: tags, label: Temas, type: string, list: true }
+      - { name: body, label: Texto de la entrada, type: rich-text }
+
+  - name: call
+    label: Convocatoria
+    type: file
+    path: _data/convocatoria.yml
+    format: yaml
+    fields:
+      - { name: status, label: Estado (open o closed), type: string, required: true }
+      - { name: theme, label: Tema confirmado, type: string }
+      - { name: deadline, label: Fecha límite confirmada, type: string }
+      - { name: submission_email, label: Correo de envío confirmado, type: string }
+      - { name: submission_url, label: Formulario de envío confirmado, type: string }
+      - { name: guidelines, label: Bases confirmadas, type: text }
+      - { name: contact_url, label: Canal de consultas, type: string }
