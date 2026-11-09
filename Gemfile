@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 # Jekyll — usar la versión compatible con GitHub Pages o la última estable
 gem "jekyll", "~> 4.3"
+gem "minima", "~> 2.5"
 
 # Plugins
 group :jekyll_plugins do
@@ -15,6 +16,3 @@ end
 
 # Windows: datos de zona horaria
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# GitHub Pages (alternativa a Jekyll directo — descomentar si usas GH Pages)
-# gem "github-pages", group: :jekyll_plugins
