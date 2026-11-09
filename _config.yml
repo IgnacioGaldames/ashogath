@@ -11,19 +11,18 @@ encoding: utf-8
 # ------------------------------------------------------------
 # Información del sitio
 # ------------------------------------------------------------
-title:       "Mi Sitio"                       # Nombre del sitio (aparece en <title> y SEO)
-name:        "Tu nombre o empresa"            # Nombre del autor / organización
+title:       "Ashogath"                       # Nombre del sitio (aparece en <title> y SEO)
+name:        "Ashogath"                       # Nombre del autor / organización
 email:       ""                               # Email de contacto (opcional)
 description: >-
-  Descripción del sitio. Aparece en resultados de búsqueda
-  y en meta tags de redes sociales.
+  Sitio web de Ashogath.
 lang:        "es"                             # Idioma del sitio (ISO 639-1)
-baseurl:     ""                               # Subpath del sitio, ej: /blog (dejar vacío si es raíz)
-url:         "https://www.tusitio.com"        # URL base con protocolo, sin barra final
+baseurl:     "/ashogath"                      # Subpath del sitio en GitHub Pages
+url:         "https://ignaciogaldames.com"     # URL base con protocolo, sin barra final
 title_image: ""                               # URL de imagen por defecto para OG/Twitter Cards
 logo: ""                                      # URL del logo para SEO (opcional)
 author:
-  name: "Tu nombre o empresa"
+  name: "Ashogath"
 
 # ------------------------------------------------------------
 # Redes sociales — dejar vacío ("") para desactivar
@@ -68,6 +67,7 @@ animate_css: false    # Activar Animate.css + WOW.js para animaciones scroll
 # ------------------------------------------------------------
 # Build settings
 # ------------------------------------------------------------
+theme:         minima
 show_excerpts: true
 markdown:      kramdown
 permalink:     pretty

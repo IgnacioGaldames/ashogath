@@ -34,9 +34,11 @@ JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
 Antes de publicar, edita [`_config.yml`](_config.yml):
 
 ```yaml
-title: "Mi Sitio"
-url:   "https://www.tusitio.com"
-lang:  "es"
+title:  "Ashogath"
+url:    "https://ignaciogaldames.com"
+baseurl: "/ashogath"
+lang:   "es"
+theme:  minima
 
 # Analytics (dejar vacío para desactivar)
 google_analytics_id: "G-XXXXXXXXXX"
@@ -99,7 +101,7 @@ Edita [`_data/navigation.yml`](_data/navigation.yml):
 5. Crea artículos en `_posts/` con el formato `YYYY-MM-DD-titulo.md`.
 6. Configura los secretos o IDs de analítica solo cuando exista consentimiento.
 
-`baseurl` debe ser vacío para un dominio raíz y comenzar con `/` cuando el sitio vive en un subdirectorio. Usa siempre `relative_url` para enlaces internos.
+`baseurl` debe ser vacío para un dominio raíz y comenzar con `/` cuando el sitio vive en un subdirectorio. Este repositorio usa `/ashogath`; el sitio público está en `https://ignaciogaldames.com/ashogath/`. Usa siempre `relative_url` para enlaces internos.
 
 ## Analytics
 
@@ -116,7 +118,9 @@ Google Analytics solo se carga en producción y respeta la preferencia `Do Not T
 
 ## Publicar en GitHub Pages
 
-El workflow incluido valida cada pull request. Para publicar desde GitHub Pages, selecciona **Settings > Pages > GitHub Actions** y conserva la rama `master` como rama principal.
+GitHub Pages ya está configurado para compilar desde la raíz de `master`. Mantén **Settings > Pages > Build and deployment > Deploy from a branch**, con `master` y `/(root)` seleccionados. Cada push a `master` publica el sitio; no hace falta cambiar a un workflow de deploy de Actions.
+
+El workflow incluido compila el sitio en cada pull request y push a `master`. Para probarlo localmente, ejecuta `bundle install` y luego `bundle exec jekyll build --strict_front_matter`.
 
 ## Licencia
 
